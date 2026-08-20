@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('clientes', function (Blueprint $table) {
+
             $table->id();
 
             $table->foreignId('user_id')
@@ -20,12 +21,19 @@ return new class extends Migration
                 ->nullOnDelete();
 
             $table->string('nombre');
+
+            $table->string('carnet', 20)
+                ->unique();
+
             $table->string('telefono', 20);
-            $table->string('direccion')->nullable();
+
+            $table->string('direccion')
+                ->nullable();
 
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
