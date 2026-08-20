@@ -15,10 +15,16 @@ return new class extends Migration
 
             $table->id();
 
+
+            /* Usuario que registro al cliente */
+
             $table->foreignId('user_id')
                 ->nullable()
                 ->constrained()
                 ->nullOnDelete();
+
+
+            /* Datos del cliente */
 
             $table->string('nombre');
 
@@ -30,7 +36,17 @@ return new class extends Migration
             $table->string('direccion')
                 ->nullable();
 
+
+            /* Estado del cliente */
+
+            $table->boolean('estado')
+                ->default(true);
+
+
+            /* Fechas de creacion y actualizacion */
+
             $table->timestamps();
+
         });
     }
 

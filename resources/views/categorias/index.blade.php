@@ -1,30 +1,30 @@
 @extends('layouts.admin')
 
 
-@section('title', 'Clientes - Carnicería JW')
+@section('title', 'Categorías - Carnicería JW')
 
 
 @section('content')
 
     @php
-        $editando = isset($clienteEditar);
+        $editando = isset($categoriaEditar);
     @endphp
 
 
-    {{-- Encabezado Clientes --}}
+    {{-- Encabezado Categorias --}}
 
-    <div class="clientes-encabezado">
+    <div class="categorias-encabezado">
 
-        <span class="clientes-etiqueta">
+        <span class="categorias-etiqueta">
             Módulo
         </span>
 
-        <h1 class="clientes-titulo">
-            Clientes
+        <h1 class="categorias-titulo">
+            Categorías
         </h1>
 
-        <p class="clientes-descripcion">
-            Registra y consulta los clientes de Carnicería JW.
+        <p class="categorias-descripcion">
+            Organiza los productos de Carnicería JW por categorías.
         </p>
 
     </div>
@@ -34,7 +34,7 @@
 
     @if(session('exito'))
 
-        <div class="clientes-exito">
+        <div class="categorias-exito">
 
             {{ session('exito') }}
 
@@ -43,21 +43,21 @@
     @endif
 
 
-    {{-- Registrar o Editar Cliente --}}
+    {{-- Registrar o Editar Categoria --}}
 
-    <section class="clientes-panel clientes-registro">
+    <section class="categorias-panel">
 
-        <div class="clientes-panel-encabezado">
+        <div class="categorias-panel-encabezado">
 
             <h2>
 
                 @if($editando)
 
-                    Editar cliente
+                    Editar categoría
 
                 @else
 
-                    Registrar cliente
+                    Registrar categoría
 
                 @endif
 
@@ -68,11 +68,11 @@
 
                 @if($editando)
 
-                    Modifica los datos del cliente.
+                    Modifica los datos de la categoría.
 
                 @else
 
-                    Ingresa los datos del cliente.
+                    Ingresa los datos de la categoría.
 
                 @endif
 
@@ -83,10 +83,10 @@
 
         <form
             action="{{ $editando
-                ? route('clientes.update', $clienteEditar)
-                : route('clientes.store') }}"
+                ? route('categorias.update', $categoriaEditar)
+                : route('categorias.store') }}"
             method="POST"
-            class="clientes-formulario"
+            class="categorias-formulario"
         >
 
             @csrf
@@ -103,10 +103,10 @@
 
             {{-- Nombre --}}
 
-            <div class="clientes-campo">
+            <div class="categorias-campo">
 
                 <label for="nombre">
-                    Nombre completo
+                    Nombre
                 </label>
 
                 <input
@@ -116,15 +116,15 @@
                     value="{{ old(
                         'nombre',
                         $editando
-                            ? $clienteEditar->nombre
+                            ? $categoriaEditar->nombre
                             : ''
                     ) }}"
-                    placeholder="Ej: Juan Pérez"
+                    placeholder="Ej: Carne"
                 >
 
                 @error('nombre')
 
-                    <p class="clientes-error">
+                    <p class="categorias-error">
                         {{ $message }}
                     </p>
 
@@ -133,94 +133,30 @@
             </div>
 
 
-            {{-- Carnet --}}
+            {{-- Descripcion --}}
 
-            <div class="clientes-campo">
+            <div class="categorias-campo">
 
-                <label for="carnet">
-                    Carnet / CI
+                <label for="descripcion">
+                    Descripción
                 </label>
 
                 <input
                     type="text"
-                    id="carnet"
-                    name="carnet"
+                    id="descripcion"
+                    name="descripcion"
                     value="{{ old(
-                        'carnet',
+                        'descripcion',
                         $editando
-                            ? $clienteEditar->carnet
+                            ? $categoriaEditar->descripcion
                             : ''
                     ) }}"
-                    placeholder="Ej: 1234567"
+                    placeholder="Ej: Cortes y productos de res"
                 >
 
-                @error('carnet')
+                @error('descripcion')
 
-                    <p class="clientes-error">
-                        {{ $message }}
-                    </p>
-
-                @enderror
-
-            </div>
-
-
-            {{-- Telefono --}}
-
-            <div class="clientes-campo">
-
-                <label for="telefono">
-                    Teléfono
-                </label>
-
-                <input
-                    type="tel"
-                    id="telefono"
-                    name="telefono"
-                    value="{{ old(
-                        'telefono',
-                        $editando
-                            ? $clienteEditar->telefono
-                            : ''
-                    ) }}"
-                    placeholder="Ej: 71234567"
-                >
-
-                @error('telefono')
-
-                    <p class="clientes-error">
-                        {{ $message }}
-                    </p>
-
-                @enderror
-
-            </div>
-
-
-            {{-- Direccion --}}
-
-            <div class="clientes-campo">
-
-                <label for="direccion">
-                    Dirección
-                </label>
-
-                <input
-                    type="text"
-                    id="direccion"
-                    name="direccion"
-                    value="{{ old(
-                        'direccion',
-                        $editando
-                            ? $clienteEditar->direccion
-                            : ''
-                    ) }}"
-                    placeholder="Ej: Av. América #123"
-                >
-
-                @error('direccion')
-
-                    <p class="clientes-error">
+                    <p class="categorias-error">
                         {{ $message }}
                     </p>
 
@@ -233,7 +169,7 @@
 
             @if($editando)
 
-                <div class="clientes-campo">
+                <div class="categorias-campo">
 
                     <label for="estado">
                         Estado
@@ -249,13 +185,13 @@
                             @selected(
                                 old(
                                     'estado',
-                                    $clienteEditar->estado
+                                    $categoriaEditar->estado
                                         ? '1'
                                         : '0'
                                 ) == '1'
                             )
                         >
-                            Activo
+                            Activa
                         </option>
 
 
@@ -264,13 +200,13 @@
                             @selected(
                                 old(
                                     'estado',
-                                    $clienteEditar->estado
+                                    $categoriaEditar->estado
                                         ? '1'
                                         : '0'
                                 ) == '0'
                             )
                         >
-                            Inactivo
+                            Inactiva
                         </option>
 
                     </select>
@@ -278,7 +214,7 @@
 
                     @error('estado')
 
-                        <p class="clientes-error">
+                        <p class="categorias-error">
                             {{ $message }}
                         </p>
 
@@ -289,13 +225,13 @@
             @endif
 
 
-            {{-- Botones Formulario --}}
+            {{-- Acciones Formulario --}}
 
-            <div class="clientes-formulario-acciones">
+            <div class="categorias-formulario-acciones">
 
                 <button
                     type="submit"
-                    class="clientes-boton"
+                    class="categorias-boton"
                 >
 
                     @if($editando)
@@ -304,7 +240,7 @@
 
                     @else
 
-                        Registrar cliente
+                        Registrar categoría
 
                     @endif
 
@@ -314,8 +250,8 @@
                 @if($editando)
 
                     <a
-                        href="{{ route('clientes.index') }}"
-                        class="clientes-cancelar"
+                        href="{{ route('categorias.index') }}"
+                        class="categorias-cancelar"
                     >
                         Cancelar
                     </a>
@@ -329,38 +265,38 @@
     </section>
 
 
-    {{-- Lista Clientes --}}
+    {{-- Lista Categorias --}}
 
-    <section class="clientes-panel clientes-listado">
+    <section class="categorias-panel">
 
-        <div class="clientes-lista-encabezado">
+        <div class="categorias-lista-encabezado">
 
             <div>
 
                 <h2>
-                    Clientes registrados
+                    Categorías registradas
                 </h2>
 
                 <p>
-                    {{ $clientes->count() }} cliente(s)
+                    {{ $categorias->count() }} categoría(s)
                 </p>
 
             </div>
 
 
-            {{-- Buscador Clientes --}}
+            {{-- Buscador Categorias --}}
 
             <form
-                action="{{ route('clientes.index') }}"
+                action="{{ route('categorias.index') }}"
                 method="GET"
-                class="clientes-buscador"
+                class="categorias-buscador"
             >
 
                 <input
                     type="search"
                     name="buscar"
                     value="{{ $buscar ?? '' }}"
-                    placeholder="Nombre, carnet o teléfono"
+                    placeholder="Buscar categoría"
                 >
 
 
@@ -371,7 +307,7 @@
 
                 @if(!empty($buscar))
 
-                    <a href="{{ route('clientes.index') }}">
+                    <a href="{{ route('categorias.index') }}">
                         Limpiar
                     </a>
 
@@ -382,15 +318,15 @@
         </div>
 
 
-        {{-- Sin Clientes --}}
+        {{-- Sin Categorias --}}
 
-        @if($clientes->isEmpty())
+        @if($categorias->isEmpty())
 
-            <div class="clientes-vacio">
+            <div class="categorias-vacio">
 
                 @if(!empty($buscar))
 
-                    No se encontraron clientes con
+                    No se encontraron categorías con
 
                     <strong>
                         "{{ $buscar }}"
@@ -398,7 +334,7 @@
 
                 @else
 
-                    Todavía no hay clientes registrados.
+                    Todavía no hay categorías registradas.
 
                 @endif
 
@@ -407,29 +343,31 @@
         @else
 
 
-            {{-- Tabla Clientes --}}
+            {{-- Tabla Categorias --}}
 
-            <div class="clientes-tabla-contenedor">
+            <div class="categorias-tabla-contenedor">
 
-                <table class="clientes-tabla">
+                <table class="categorias-tabla">
 
                     <thead>
 
                         <tr>
 
-                            <th>Nombre</th>
+                            <th>
+                                Nombre
+                            </th>
 
-                            <th>Carnet</th>
+                            <th>
+                                Descripción
+                            </th>
 
-                            <th>Teléfono</th>
+                            <th>
+                                Estado
+                            </th>
 
-                            <th>Dirección</th>
-
-                            <th>Estado</th>
-
-                            <th>Registrado por</th>
-
-                            <th>Acciones</th>
+                            <th>
+                                Acciones
+                            </th>
 
                         </tr>
 
@@ -438,56 +376,39 @@
 
                     <tbody>
 
-                        @foreach($clientes as $cliente)
+                        @foreach($categorias as $categoria)
 
                             <tr>
 
                                 <td>
-                                    {{ $cliente->nombre }}
+                                    {{ $categoria->nombre }}
                                 </td>
 
 
                                 <td>
-                                    {{ $cliente->carnet }}
-                                </td>
-
-
-                                <td>
-                                    {{ $cliente->telefono }}
-                                </td>
-
-
-                                <td>
-                                    {{ $cliente->direccion ?: 'Sin dirección' }}
+                                    {{ $categoria->descripcion ?: 'Sin descripción' }}
                                 </td>
 
 
                                 <td>
 
-                                    @if($cliente->estado)
+                                    @if($categoria->estado)
 
                                         <span
-                                            class="clientes-estado clientes-estado-activo"
+                                            class="categorias-estado categorias-estado-activo"
                                         >
-                                            Activo
+                                            Activa
                                         </span>
 
                                     @else
 
                                         <span
-                                            class="clientes-estado clientes-estado-inactivo"
+                                            class="categorias-estado categorias-estado-inactivo"
                                         >
-                                            Inactivo
+                                            Inactiva
                                         </span>
 
                                     @endif
-
-                                </td>
-
-
-                                <td>
-
-                                    {{ $cliente->user?->name ?? 'Usuario eliminado' }}
 
                                 </td>
 
@@ -496,17 +417,17 @@
 
                                 <td>
 
-                                    <div class="clientes-acciones">
+                                    <div class="categorias-acciones">
 
 
                                         {{-- Editar --}}
 
                                         <a
                                             href="{{ route(
-                                                'clientes.edit',
-                                                $cliente
+                                                'categorias.edit',
+                                                $categoria
                                             ) }}"
-                                            class="clientes-editar"
+                                            class="categorias-editar"
                                         >
                                             Editar
                                         </a>
@@ -516,12 +437,12 @@
 
                                         <form
                                             action="{{ route(
-                                                'clientes.destroy',
-                                                $cliente
+                                                'categorias.destroy',
+                                                $categoria
                                             ) }}"
                                             method="POST"
                                             onsubmit="return confirm(
-                                                '¿Seguro que deseas eliminar este cliente?'
+                                                '¿Seguro que deseas eliminar esta categoría?'
                                             )"
                                         >
 
@@ -532,7 +453,7 @@
 
                                             <button
                                                 type="submit"
-                                                class="clientes-eliminar"
+                                                class="categorias-eliminar"
                                             >
                                                 Eliminar
                                             </button>

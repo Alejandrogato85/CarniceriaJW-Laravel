@@ -12,8 +12,7 @@
 
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;900&display=swap"
-        rel="stylesheet"
-    >
+        rel="stylesheet">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -34,10 +33,13 @@
                     Inicio
                 </a>
 
-                <a href="#">
+                <a href="{{ route('clientes.index') }}" class="{{ request()->routeIs('clientes.*') ? 'activo' : '' }}">
                     Clientes
                 </a>
-
+                <a href="{{ route('categorias.index') }}"
+                    class="{{ request()->routeIs('categorias.*') ? 'activo' : '' }}">
+                    Categorías
+                </a>
                 <a href="#">
                     Productos
                 </a>
@@ -66,16 +68,10 @@
                     {{ auth()->user()->email }}
                 </span>
 
-                <form
-                    action="{{ route('logout') }}"
-                    method="POST"
-                >
+                <form action="{{ route('logout') }}" method="POST">
                     @csrf
 
-                    <button
-                        type="submit"
-                        class="admin-logout"
-                    >
+                    <button type="submit" class="admin-logout">
                         Cerrar sesión
                     </button>
                 </form>

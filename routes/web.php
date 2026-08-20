@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\CategoriaController;
 use Illuminate\Support\Facades\Route;
-
 
 
 /*
@@ -12,22 +12,17 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-
 Route::view('/', 'inicio')
     ->name('inicio');
-
 
 Route::view('/nosotros', 'nosotros')
     ->name('nosotros');
 
-
 Route::view('/cortes', 'cortes')
     ->name('cortes');
 
-
 Route::view('/contacto', 'contacto')
     ->name('contacto');
-
 
 
 /*
@@ -36,30 +31,40 @@ Route::view('/contacto', 'contacto')
 |--------------------------------------------------------------------------
 */
 
-
 Route::middleware('guest')->group(function () {
 
     // Mostrar formulario de login
-    Route::get('/login', [AuthController::class, 'login'])
+    Route::get(
+        '/login',
+        [AuthController::class, 'login']
+    )
         ->name('login');
 
 
     // Procesar login
-    Route::post('/login', [AuthController::class, 'iniciarSesion'])
+    Route::post(
+        '/login',
+        [AuthController::class, 'iniciarSesion']
+    )
         ->name('login.store');
 
 
     // Mostrar formulario de registro
-    Route::get('/register', [AuthController::class, 'register'])
+    Route::get(
+        '/register',
+        [AuthController::class, 'register']
+    )
         ->name('register');
 
 
     // Procesar registro
-    Route::post('/register', [AuthController::class, 'registrarUsuario'])
+    Route::post(
+        '/register',
+        [AuthController::class, 'registrarUsuario']
+    )
         ->name('register.store');
 
 });
-
 
 
 /*
@@ -67,7 +72,6 @@ Route::middleware('guest')->group(function () {
 | Panel de Administracion
 |--------------------------------------------------------------------------
 */
-
 
 Route::middleware('auth')->group(function () {
 
@@ -95,20 +99,82 @@ Route::middleware('auth')->group(function () {
         ->name('clientes.index');
 
 
-    // Mostrar formulario
-    Route::get(
-        '/clientes/nuevo',
-        [ClienteController::class, 'create']
-    )
-        ->name('clientes.create');
-
-
     // Guardar cliente
     Route::post(
         '/clientes',
         [ClienteController::class, 'store']
     )
         ->name('clientes.store');
+
+
+    // Editar cliente
+    Route::get(
+        '/clientes/{cliente}/editar',
+        [ClienteController::class, 'edit']
+    )
+        ->name('clientes.edit');
+
+
+    // Actualizar cliente
+    Route::put(
+        '/clientes/{cliente}',
+        [ClienteController::class, 'update']
+    )
+        ->name('clientes.update');
+
+
+    // Eliminar cliente
+    Route::delete(
+        '/clientes/{cliente}',
+        [ClienteController::class, 'destroy']
+    )
+        ->name('clientes.destroy');
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Categorias
+    |--------------------------------------------------------------------------
+    */
+
+    // Listar categorias
+    Route::get(
+        '/categorias',
+        [CategoriaController::class, 'index']
+    )
+        ->name('categorias.index');
+
+
+    // Guardar categoria
+    Route::post(
+        '/categorias',
+        [CategoriaController::class, 'store']
+    )
+        ->name('categorias.store');
+
+
+    // Editar categoria
+    Route::get(
+        '/categorias/{categoria}/editar',
+        [CategoriaController::class, 'edit']
+    )
+        ->name('categorias.edit');
+
+
+    // Actualizar categoria
+    Route::put(
+        '/categorias/{categoria}',
+        [CategoriaController::class, 'update']
+    )
+        ->name('categorias.update');
+
+
+    // Eliminar categoria
+    Route::delete(
+        '/categorias/{categoria}',
+        [CategoriaController::class, 'destroy']
+    )
+        ->name('categorias.destroy');
 
 
     /*

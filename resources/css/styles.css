@@ -1351,3 +1351,1024 @@ textarea{
     }
 
 }
+
+/* Clientes */
+
+.clientes-encabezado {
+    margin-bottom: 2.5rem;
+}
+
+
+.clientes-etiqueta {
+    display: inline-block;
+
+    margin-bottom: 0.5rem;
+
+    color: var(--admin-primario);
+
+    font-size: 1.3rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+
+.clientes-titulo {
+    margin: 0;
+
+    color: var(--admin-texto);
+
+    font-size: 4rem;
+}
+
+
+.clientes-descripcion {
+    margin-top: 0.5rem;
+
+    color: var(--admin-texto-secundario);
+
+    font-size: 1.5rem;
+}
+
+
+/* Mensaje Exito Clientes */
+
+.clientes-exito {
+    margin-bottom: 2rem;
+
+    padding: 1.2rem 1.5rem;
+
+    background-color: var(--estado-pagado-fondo);
+
+    color: var(--estado-pagado-texto);
+
+    border-left: 0.4rem solid var(--estado-pagado-texto);
+
+    border-radius: 0.6rem;
+}
+
+
+/* Panel Clientes */
+
+.clientes-panel {
+    margin-bottom: 2rem;
+
+    padding: 2rem;
+
+    background-color: var(--admin-superficie);
+
+    border: 0.1rem solid var(--admin-borde);
+
+    border-radius: 1rem;
+
+    box-shadow:
+        0 0.5rem 1.8rem
+        var(--admin-sombra);
+}
+
+
+/* Encabezado Panel Clientes */
+
+.clientes-panel-encabezado {
+    margin-bottom: 2rem;
+}
+
+
+.clientes-panel h2 {
+    margin: 0;
+
+    color: var(--admin-texto);
+
+    font-family: var(--fuenteSecundaria);
+
+    font-size: 2rem;
+}
+
+
+.clientes-panel-encabezado p {
+    margin: 0.5rem 0 0 0;
+
+    color: var(--admin-texto-secundario);
+
+    font-size: 1.4rem;
+}
+
+
+/* Formulario Clientes */
+
+.clientes-formulario {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+}
+
+
+/* Campo Clientes */
+
+.clientes-campo {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.6rem;
+}
+
+
+.clientes-campo label {
+    color: var(--admin-texto);
+
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+
+.clientes-campo input {
+    width: 100%;
+
+    padding: 1.1rem 1.2rem;
+
+    background-color: var(--admin-superficie);
+
+    color: var(--admin-texto);
+
+    border: 0.1rem solid var(--admin-borde);
+
+    border-radius: 0.6rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.clientes-campo input:focus {
+    border-color: var(--admin-primario);
+
+    box-shadow:
+        0 0 0 0.3rem
+        rgba(177, 18, 38, 0.1);
+}
+
+
+.clientes-campo input::placeholder {
+    color: #999999;
+}
+
+
+/* Error Clientes */
+
+.clientes-error {
+    margin: 0;
+
+    color: var(--estado-vencido-texto);
+
+    font-size: 1.3rem;
+}
+
+
+/* Boton Registrar Cliente */
+
+.clientes-boton {
+    width: 100%;
+
+    padding: 1.1rem 1.6rem;
+
+    background-color: var(--admin-primario);
+
+    color: var(--texto-claro);
+
+    border: none;
+
+    border-radius: 0.6rem;
+
+    font-family: var(--fuenteSecundaria);
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.clientes-boton:hover {
+    background-color: var(--admin-primario-hover);
+
+    transform: translateY(-0.2rem);
+}
+
+
+/* Lista Clientes */
+
+.clientes-lista-encabezado {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1.5rem;
+
+    margin-bottom: 2rem;
+}
+
+
+.clientes-lista-encabezado p {
+    margin: 0.5rem 0 0 0;
+
+    color: var(--admin-texto-secundario);
+
+    font-size: 1.4rem;
+}
+
+
+/* Buscador Clientes */
+
+.clientes-buscador {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.8rem;
+}
+
+
+.clientes-buscador input {
+    width: 100%;
+
+    padding: 1rem 1.2rem;
+
+    background-color: var(--admin-superficie);
+
+    color: var(--admin-texto);
+
+    border: 0.1rem solid var(--admin-borde);
+
+    border-radius: 0.6rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.clientes-buscador input:focus {
+    border-color: var(--admin-primario);
+
+    box-shadow:
+        0 0 0 0.3rem
+        rgba(177, 18, 38, 0.1);
+}
+
+
+/* Boton Buscar Cliente */
+
+.clientes-buscador button {
+    padding: 1rem 1.5rem;
+
+    background-color: var(--admin-primario);
+
+    color: var(--texto-claro);
+
+    border: none;
+
+    border-radius: 0.6rem;
+
+    font-family: var(--fuenteSecundaria);
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease;
+}
+
+
+.clientes-buscador button:hover {
+    background-color: var(--admin-primario-hover);
+}
+
+
+/* Limpiar Busqueda Clientes */
+
+.clientes-buscador a {
+    align-self: center;
+
+    color: var(--admin-primario);
+
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+
+/* Clientes Vacio */
+
+.clientes-vacio {
+    padding: 3rem 1rem;
+
+    text-align: center;
+
+    color: var(--admin-texto-secundario);
+}
+
+
+/* Tabla Clientes */
+
+.clientes-tabla-contenedor {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+.clientes-tabla {
+    width: 100%;
+
+    min-width: 85rem;
+
+    border-collapse: collapse;
+}
+
+
+.clientes-tabla th,
+.clientes-tabla td {
+    padding: 1.2rem 1rem;
+
+    text-align: left;
+
+    border-bottom: 0.1rem solid var(--admin-borde);
+}
+
+
+.clientes-tabla th {
+    color: var(--admin-texto-secundario);
+
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+
+.clientes-tabla td {
+    color: var(--admin-texto);
+
+    font-size: 1.4rem;
+}
+
+
+.clientes-tabla tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* Estado Clientes */
+
+.clientes-estado {
+    display: inline-block;
+
+    padding: 0.4rem 0.9rem;
+
+    border-radius: 2rem;
+
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+
+.clientes-estado-activo {
+    background-color: var(--estado-pagado-fondo);
+
+    color: var(--estado-pagado-texto);
+}
+
+
+.clientes-estado-inactivo {
+    background-color: var(--estado-vencido-fondo);
+
+    color: var(--estado-vencido-texto);
+}
+
+
+/* Clientes Tablet */
+
+@media(min-width:768px) {
+
+    .clientes-titulo {
+        font-size: 5rem;
+    }
+
+
+    .clientes-formulario {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .clientes-boton {
+        width: auto;
+
+        justify-self: start;
+
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+
+    .clientes-lista-encabezado {
+        flex-direction: row;
+
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    .clientes-buscador {
+        flex-direction: row;
+
+        align-items: center;
+    }
+
+
+    .clientes-buscador input {
+        width: 25rem;
+    }
+
+}
+
+
+/* Clientes Desktop */
+
+@media(min-width:1100px) {
+
+    .clientes-formulario {
+        grid-template-columns:
+            2fr
+            1fr
+            1fr
+            2fr
+            auto;
+
+        align-items: end;
+    }
+
+
+    .clientes-boton {
+        width: auto;
+
+        white-space: nowrap;
+    }
+
+
+    .clientes-buscador input {
+        width: 28rem;
+    }
+
+}
+
+
+/* Categorias */
+
+.categorias-encabezado {
+    margin-bottom: 2.5rem;
+}
+
+
+.categorias-etiqueta {
+    display: inline-block;
+
+    margin-bottom: 0.5rem;
+
+    color: var(--admin-primario);
+
+    font-size: 1.3rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+
+.categorias-titulo {
+    margin: 0;
+
+    color: var(--admin-texto);
+
+    font-size: 4rem;
+}
+
+
+.categorias-descripcion {
+    margin-top: 0.5rem;
+
+    color: var(--admin-texto-secundario);
+
+    font-size: 1.5rem;
+}
+
+
+/* Mensaje Exito Categorias */
+
+.categorias-exito {
+    margin-bottom: 2rem;
+
+    padding: 1.2rem 1.5rem;
+
+    background-color: var(--estado-pagado-fondo);
+
+    color: var(--estado-pagado-texto);
+
+    border-left: 0.4rem solid var(--estado-pagado-texto);
+
+    border-radius: 0.6rem;
+}
+
+
+/* Panel Categorias */
+
+.categorias-panel {
+    margin-bottom: 2rem;
+
+    padding: 2rem;
+
+    background-color: var(--admin-superficie);
+
+    border: 0.1rem solid var(--admin-borde);
+
+    border-radius: 1rem;
+
+    box-shadow:
+        0 0.5rem 1.8rem
+        var(--admin-sombra);
+}
+
+
+.categorias-panel h2 {
+    margin: 0;
+
+    color: var(--admin-texto);
+
+    font-family: var(--fuenteSecundaria);
+
+    font-size: 2rem;
+}
+
+
+/* Encabezado Panel Categorias */
+
+.categorias-panel-encabezado {
+    margin-bottom: 2rem;
+}
+
+
+.categorias-panel-encabezado p {
+    margin: 0.5rem 0 0 0;
+
+    color: var(--admin-texto-secundario);
+
+    font-size: 1.4rem;
+}
+
+
+/* Formulario Categorias */
+
+.categorias-formulario {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+}
+
+
+/* Campo Categorias */
+
+.categorias-campo {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.6rem;
+}
+
+
+.categorias-campo label {
+    color: var(--admin-texto);
+
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+
+.categorias-campo input,
+.categorias-campo select {
+    width: 100%;
+
+    padding: 1.1rem 1.2rem;
+
+    background-color: var(--admin-superficie);
+
+    color: var(--admin-texto);
+
+    border: 0.1rem solid var(--admin-borde);
+
+    border-radius: 0.6rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.categorias-campo input:focus,
+.categorias-campo select:focus {
+    border-color: var(--admin-primario);
+
+    box-shadow:
+        0 0 0 0.3rem
+        rgba(177, 18, 38, 0.1);
+}
+
+
+.categorias-campo input::placeholder {
+    color: #999999;
+}
+
+
+/* Error Categorias */
+
+.categorias-error {
+    margin: 0;
+
+    color: var(--estado-vencido-texto);
+
+    font-size: 1.3rem;
+}
+
+
+/* Acciones Formulario Categorias */
+
+.categorias-formulario-acciones {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1rem;
+}
+
+
+/* Boton Categoria */
+
+.categorias-boton {
+    width: 100%;
+
+    padding: 1.1rem 1.6rem;
+
+    background-color: var(--admin-primario);
+
+    color: var(--texto-claro);
+
+    border: none;
+
+    border-radius: 0.6rem;
+
+    font-family: var(--fuenteSecundaria);
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.categorias-boton:hover {
+    background-color: var(--admin-primario-hover);
+
+    transform: translateY(-0.2rem);
+}
+
+
+/* Cancelar Edicion Categoria */
+
+.categorias-cancelar {
+    padding: 1.1rem 1.5rem;
+
+    color: var(--admin-texto-secundario);
+
+    text-align: center;
+
+    border: 0.1rem solid var(--admin-borde);
+
+    border-radius: 0.6rem;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+
+/* Lista Categorias */
+
+.categorias-lista-encabezado {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1.5rem;
+
+    margin-bottom: 2rem;
+}
+
+
+.categorias-lista-encabezado p {
+    margin: 0.5rem 0 0 0;
+
+    color: var(--admin-texto-secundario);
+
+    font-size: 1.4rem;
+}
+
+
+/* Buscador Categorias */
+
+.categorias-buscador {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.8rem;
+}
+
+
+.categorias-buscador input {
+    width: 100%;
+
+    padding: 1rem 1.2rem;
+
+    background-color: var(--admin-superficie);
+
+    color: var(--admin-texto);
+
+    border: 0.1rem solid var(--admin-borde);
+
+    border-radius: 0.6rem;
+
+    outline: none;
+}
+
+
+.categorias-buscador input:focus {
+    border-color: var(--admin-primario);
+}
+
+
+/* Boton Buscar Categoria */
+
+.categorias-buscador button {
+    padding: 1rem 1.5rem;
+
+    background-color: var(--admin-primario);
+
+    color: var(--texto-claro);
+
+    border: none;
+
+    border-radius: 0.6rem;
+
+    font-family: var(--fuenteSecundaria);
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.categorias-buscador button:hover {
+    background-color: var(--admin-primario-hover);
+}
+
+
+/* Limpiar Busqueda Categorias */
+
+.categorias-buscador a {
+    align-self: center;
+
+    color: var(--admin-primario);
+
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+
+/* Categorias Vacio */
+
+.categorias-vacio {
+    padding: 3rem 1rem;
+
+    color: var(--admin-texto-secundario);
+
+    text-align: center;
+}
+
+
+/* Tabla Categorias */
+
+.categorias-tabla-contenedor {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+.categorias-tabla {
+    width: 100%;
+
+    min-width: 65rem;
+
+    border-collapse: collapse;
+}
+
+
+.categorias-tabla th,
+.categorias-tabla td {
+    padding: 1.2rem 1rem;
+
+    text-align: left;
+
+    border-bottom: 0.1rem solid var(--admin-borde);
+}
+
+
+.categorias-tabla th {
+    color: var(--admin-texto-secundario);
+
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+
+.categorias-tabla td {
+    color: var(--admin-texto);
+
+    font-size: 1.4rem;
+}
+
+
+.categorias-tabla tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* Estado Categorias */
+
+.categorias-estado {
+    display: inline-block;
+
+    padding: 0.4rem 0.9rem;
+
+    border-radius: 2rem;
+
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+
+.categorias-estado-activo {
+    background-color: var(--estado-pagado-fondo);
+
+    color: var(--estado-pagado-texto);
+}
+
+
+.categorias-estado-inactivo {
+    background-color: var(--estado-vencido-fondo);
+
+    color: var(--estado-vencido-texto);
+}
+
+
+/* Acciones Categorias */
+
+.categorias-acciones {
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.8rem;
+}
+
+
+.categorias-editar,
+.categorias-eliminar {
+    padding: 0.7rem 1rem;
+
+    border-radius: 0.5rem;
+
+    font-size: 1.3rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* Editar Categoria */
+
+.categorias-editar {
+    background-color: var(--admin-rojo-suave);
+
+    color: var(--admin-primario);
+}
+
+
+/* Eliminar Categoria */
+
+.categorias-eliminar {
+    background-color: var(--estado-vencido-fondo);
+
+    color: var(--estado-vencido-texto);
+
+    border: none;
+}
+
+
+/* Categorias Tablet */
+
+@media(min-width:768px) {
+
+    .categorias-titulo {
+        font-size: 5rem;
+    }
+
+
+    .categorias-formulario {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .categorias-formulario-acciones {
+        flex-direction: row;
+
+        align-items: end;
+    }
+
+
+    .categorias-boton {
+        width: auto;
+    }
+
+
+    .categorias-lista-encabezado {
+        flex-direction: row;
+
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    .categorias-buscador {
+        flex-direction: row;
+
+        align-items: center;
+    }
+
+
+    .categorias-buscador input {
+        width: 25rem;
+    }
+
+}
+
+
+/* Categorias Desktop */
+
+@media(min-width:1100px) {
+
+    .categorias-formulario {
+        grid-template-columns:
+            1fr
+            2fr
+            1fr
+            auto;
+
+        align-items: end;
+    }
+
+
+    .categorias-buscador input {
+        width: 28rem;
+    }
+
+}
