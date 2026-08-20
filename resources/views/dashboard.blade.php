@@ -1,18 +1,34 @@
-<x-layouts::app :title="__('Dashboard')">
-    <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
-        <div class="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-                <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
-            </div>
-            <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-                <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
-            </div>
-            <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-                <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
-            </div>
+@extends('layouts.admin')
+
+@section('title', 'Dashboard')
+
+@section('content')
+
+    <h1 class="dashboard-titulo">
+        Panel de administración
+    </h1>
+
+    <p class="dashboard-bienvenida">
+        Bienvenido, {{ auth()->user()->name }}.
+    </p>
+
+    <div class="dashboard-cards">
+
+        <div class="dashboard-card">
+            <h3>Clientes</h3>
+            <p>Administración de clientes.</p>
         </div>
-        <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-            <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
+
+        <div class="dashboard-card">
+            <h3>Productos</h3>
+            <p>Administración de productos.</p>
         </div>
+
+        <div class="dashboard-card">
+            <h3>Deudas</h3>
+            <p>Control de cuentas pendientes.</p>
+        </div>
+
     </div>
-</x-layouts::app>
+
+@endsection

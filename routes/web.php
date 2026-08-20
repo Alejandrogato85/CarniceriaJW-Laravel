@@ -1,62 +1,58 @@
 <?php
-use App\Models\Herramienta;
+
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome')->name('home');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::view('dashboard', 'dashboard')->name('dashboard');
-});
+
 
 Route::view('/', 'inicio')->name('inicio');
 
-Route::view('/nosotros', 'nosotros')->name('nosotros');
-
-Route::view('/cortes', 'cortes')->name('cortes');
-
-Route::view('/contacto', 'contacto')->name('contacto');
 
 
+Route::view('/nosotros', 'nosotros')
+    ->name('nosotros');
+
+Route::view('/cortes', 'cortes')
+    ->name('cortes');
+
+Route::view('/contacto', 'contacto')
+    ->name('contacto');
 
 
-Route::get('/herramientas', function () {
 
-    $herramientas = Herramienta::all();
 
-    return view('herramientas', [
-        'herramientas' => $herramientas,
-    ]);
+Route::middleware('guest')->group(function () {
+
+    // Mostrar formulario de login
+    Route::get('/login', [AuthController::class, 'login'])
+        ->name('login');
+
+    // Procesar login
+    Route::post('/login', [AuthController::class, 'iniciarSesion'])
+        ->name('login.store');
+
+    // Mostrar formulario de registro
+    Route::get('/register', [AuthController::class, 'register'])
+        ->name('register');
+
+    // Procesar registro
+    Route::post('/register', [AuthController::class, 'registrarUsuario'])
+        ->name('register.store');
+
 });
 
 
 
-Route::get('/herramientas/nuevo', function () {
 
-    return view('herramienta-nuevo');
+Route::middleware('auth')->group(function () {
 
-});
+    // Dashboard
+    Route::view('/dashboard', 'dashboard')
+        ->name('dashboard');
 
-
-
-Route::post('/herramientas/nuevo', function () {
-
-    request()->validate(
-        [
-            'nombre' => 'required',
-            'precio' => 'required|integer',
-        ],
-        [
-            'nombre.required' => 'Escribí el nombre de la herramienta. Alejo',
-            'precio.required' => 'Escribí el precio de la herramienta. Alejo',
-            'precio.integer' => 'El precio se anota solo con cifras. Alejo',
-        ]
-    );
-
-    Herramienta::create([
-        'nombre' => request()->input('nombre'),
-        'precio' => request()->input('precio'),
-    ]);
-
-    return redirect('/herramientas');
+    // Cerrar sesión
+    Route::post('/logout', [AuthController::class, 'cerrarSesion'])
+        ->name('logout');
 
 });
